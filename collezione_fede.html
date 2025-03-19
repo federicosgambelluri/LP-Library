@@ -37,24 +37,34 @@
     </nav>
 </header>
 
-<!-- Sezione principale della collezione -->
-<main>
-    <div id="search-filter-container">
-        <!-- Campo di ricerca (placeholder) -->
-        <input type="text" id="search-placeholder" placeholder="🔍 Cerca un vinile..." >
 
-        <!-- Filtro di ordinamento (placeholder) -->
-        <select id="sort-placeholder" >
-            <option value="">Ordina...</option>
-            <option value="a-z">A-Z</option>
-            <option value="z-a">Z-A</option>
-        </select>
-    </div>
+    <!-- Sezione principale della collezione -->
+    <main>
+        <div id="search-filter-container">
+            <!-- Campo di ricerca -->
+            <input type="text" id="search-placeholder" placeholder="🔍 Cerca un vinile...">
+
+            <!-- Filtro di ricerca -->
+            <select id="filter-placeholder">
+                <option value="artista">Artista</option>
+                <option value="genere">Genere</option>
+                <option value="anno">Anno</option>
+                <option value="locazione">Locazione</option>
+            </select>
+
+            <!-- Ordinamento -->
+            <select id="sort-placeholder">
+                <option value="">Ordina...</option>
+                <option value="a-z">A-Z</option>
+                <option value="z-a">Z-A</option>
+            </select>
+        </div>
 
     <!-- Tabella dei vinili -->
     <table>
         <thead>
         <tr>
+            <th>Copertina</th>
             <th>Codice</th>
             <th>Titolo</th>
             <th>Artista-Gruppo</th>
