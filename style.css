@@ -558,12 +558,10 @@ iframe{
     object-fit: cover; /* Fa in modo che l'immagine copra il contenitore senza distorcere */
 }
 
-
 /* Media Query per dispositivi mobili */
 @media (max-width: 768px) {
-    /* Regolazioni generali */
     body {
-        font-size: 16px;
+        font-size: 14px; /* Riduci la dimensione del font per dispositivi mobili */
     }
 
     header h1 {
@@ -571,170 +569,47 @@ iframe{
     }
 
     nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        margin-top: 10px;
+        text-align: center;
     }
 
     nav a {
-        margin: 5px 0;
+        margin: 0 10px;
         font-size: 1em;
     }
 
     main {
-        padding: 15px;
-    }
-
-    main h2 {
-        font-size: 1.5em;
-    }
-
-    /* Sezione aggiungi vinile */
-    #aggiungi-vinile form {
-        grid-template-columns: 1fr;
-    }
-
-    #aggiungi-vinile button {
-        grid-column: 1 / -1;
-    }
-
-    /* Tabelle e immagini */
-    table, th, td {
-        font-size: 0.9em;
-    }
-
-    .copertina {
-        width: 100%;
-        height: auto;
-    }
-
-    /* Carosello */
-    .carousel-item img {
-        width: 100%;
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        display: none;
-    }
-
-    /* Footer */
-    footer {
-        padding: 0.5em;
-    }
-
-    /* Project Plan */
-    #project-plan {
-        padding: 15px;
-    }
-
-    #project-plan h1 {
-        font-size: 1.5em;
-    }
-
-    #project-plan h2 {
-        font-size: 1.3em;
-    }
-
-    #project-plan h3 {
-        font-size: 1.1em;
-    }
-
-    /* Timeline */
-    .timeline-container {
-        overflow-x: auto;
-    }
-
-    .timeline {
-        flex-wrap: nowrap;
-    }
-
-    header {
-        text-align: center;
         padding: 10px;
+        max-width: 100%;
     }
-    header h1 {
-        font-size: 1.5em;
-        margin-bottom: 5px;
-    }
-    header nav a {
-        display: block;
-        margin: 5px 0;
-        font-size: 1em;
-    }
+
     .logo {
-        width: 80px;
-        height: auto;
+        height: 80px;
     }
 
-    /* Carosello: rendere le immagini responsive */
-    .carousel-inner img {
-        width: 100%;
-        height: auto;
+    .cover {
+        padding: 10px;
+        margin-bottom: 20px;
     }
 
-    /* Accordion e form: garantire che gli elementi si estendano al 100% */
-    #vinileAccordion .card,
-    #aggiungi-vinile {
-        margin: 0 10px;
-    }
-    #formVinile input,
-    #formVinile select,
-    #formVinile button {
-        width: 100%;
-        margin-bottom: 10px;
+    #aggiungi-vinile form {
+        grid-template-columns: 1fr; /* Usa una sola colonna per la form */
     }
 
-    /* Tabella: ridurre il font e aggiungere lo scroll orizzontale se necessario */
-    table {
-        font-size: 0.8em;
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
+    table, th, td {
+        padding: 8px;
     }
 
-    /* Search & Filter: disposizione a colonna per occupare tutta la larghezza */
-    #search-filter-container {
-        display: flex;
+    #pagination {
         flex-direction: column;
-        padding: 0 10px;
-    }
-    #search-filter-container input,
-    #search-filter-container select {
-        width: 100%;
-        margin-bottom: 10px;
     }
 
-    /* Timeline: abilitare lo scroll orizzontale per timeline troppo lunga */
-    .timeline-container {
-        overflow-x: auto;
+    #pagination .pagina {
+        width: 100%;
         padding: 10px;
     }
-    .timeline {
-        flex-wrap: nowrap;
-        width: auto;
-    }
-    .timeline-item {
-        flex: 0 0 auto;
-        width: 60px;
-        height: 60px;
-        font-size: 0.9em;
-        line-height: 60px;
-    }
 
-    /* Mappa: rendere l'iframe responsive */
-    #map-container iframe {
-        width: 100%;
-        height: auto;
-    }
-
-    /* Footer: centrare i contenuti */
-    footer p,
-    footer #dublin-core {
-        text-align: center;
-        padding: 5px;
-    }
-    footer #dublin-core .row {
-        flex-direction: column;
+    footer {
+        font-size: 14px;
     }
 }
