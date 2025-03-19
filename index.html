@@ -38,144 +38,42 @@
     <h1>LP Library - Collezione di Vinili</h1>
     <nav>
         <a href="index.html">Home</a>
-        <a href="collezione.html">Collezione</a>
-        <a href="https://federicosgambelluri.github.io/CVV/">Autore</a>
-        <a href="project-plan.html">Web Project Plan</a>
+        <a href="collezione_fede.html">Collezione Federico</a>
+        <a href="collezione_beppe.html">Collezione Giuseppe</a>
     </nav>
 </header>
 
 <!-- Sezione principale della collezione -->
 <main>
 
-    <!-- Carosello delle copertine -->
-    <div id="albumCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" role="listbox">
-            <!-- Le slide vengono aggiunte dinamicamente con JavaScript -->
-        </div>
-        <!-- Controlli del carosello -->
-        <!-- #albumCarousel fa parte del JS per scorrere alle copertine successive -->
-        <a class="carousel-control-prev" href="#albumCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Precedente</span>
-        </a>
-        <a class="carousel-control-next" href="#albumCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Successivo</span>
-        </a>
-    </div>
-
-    <!-- Accordion per dettagli vinile -->
-    <div id="vinileAccordion">
-        <!-- Accordion per Aggiungere un Vinile -->
-        <div class="card">
-            <div class="card-header">
-                <a class="btn btn-link" data-toggle="collapse" href="#aggiungiVinileAccordion">Aggiungi un Nuovo Vinile ⬇️</a>
+    <div class="container mt-5">
+        <!-- Card Row -->
+        <div class="row justify-content-center">
+            <!-- Card 1: Libreria Giuseppe -->
+            <div class="col-md-5 mb-4">
+                <a href="collezione_beppe.html">
+                    <div class="card">
+                        <img src="images/giuseppe.jpg" class="card-img-top" alt="Libreria Giuseppe">
+                        <div class="card-body">
+                            <h5 class="card-title">Libreria Giuseppe</h5>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div id="aggiungiVinileAccordion" class="collapse" data-parent="#vinileAccordion">
-                <div class="card-body">
-                    <!-- Modulo per aggiungere un nuovo vinile -->
-                    <section id="aggiungi-vinile">
-                        <form id="formVinile">
-                            <input type="text" id="codice" placeholder="Codice" required>
-                            <input type="text" id="titolo" placeholder="Titolo" required>
-                            <input type="text" id="artista" placeholder="Artista-Gruppo" required>
-                            <input type="number" id="anno" placeholder="Anno di Pubblicazione" required minlength="4" maxlength="4">
 
-                            <select id="genere" required>
-                                <option value="" disabled selected>Seleziona Genere</option>
-                                <option value="Rock">Rock</option>
-                                <option value="Pop">Pop</option>
-                                <option value="Hip-Hop">Hip-Hop</option>
-                                <option value="Jazz">Jazz</option>
-                                <option value="Classica">Classica</option>
-                                <option value="Blues">Blues</option>
-                                <option value="Country">Country</option>
-                                <option value="Electronic">Electronic</option>
-                                <option value="Folk">Folk</option>
-                                <option value="Reggae">Reggae</option>
-                                <option value="Metal">Metal</option>
-                                <option value="Punk">Punk</option>
-                                <option value="R&B">R&B</option>
-                                <option value="Soul">Soul</option>
-                                <option value="Disco">Disco</option>
-                                <option value="Funk">Funk</option>
-                                <option value="Gospel">Gospel</option>
-                                <option value="Latin">Latin</option>
-                                <option value="Alternative">Alternative</option>
-                                <option value="Indie">Indie</option>
-                                <option value="Techno">Techno</option>
-                                <option value="House">House</option>
-                                <option value="Drum & Bass">Drum & Bass</option>
-                                <option value="Trap">Trap</option>
-                                <option value="Ambient">Ambient</option>
-                                <option value="Hard Rock">Hard Rock</option>
-                                <option value="Other">Other</option>
-                            </select>
-
-                            <select id="pollici" required>
-                                <option value="" disabled selected>Seleziona Pollici</option>
-                                <option value="10">10"</option>
-                                <option value="12">12"</option>
-                                <option value="7">7"</option>
-                            </select>
-
-                            <select id="rpm" required>
-                                <option value="" disabled selected>Seleziona RPM</option>
-                                <option value="33">33</option>
-                                <option value="48">48</option>
-                                <option value="78">78</option>
-                            </select>
-
-                            <input type="text" id="paese" placeholder="Paese" required minlength="2" maxlength="2" pattern="[A-Za-z]{2}">
-                            <input type="text" id="etichetta" placeholder="Casa Discografica" required>
-                            <input type="number" id="prezzo" placeholder="Prezzo" required>
-
-                            <button type="button" class="btn btn-success mt-2" onclick="aggiungiVinile()">Aggiungi alla Collezione</button>
-                            <button type="button" class="btn btn-danger mt-2" onclick="resetVinili()">Resetta Collezione</button>
-                        </form>
-                    </section>
-                </div>
+            <!-- Card 2: Libreria Federico -->
+            <div class="col-md-5 mb-4">
+                <a href="collezione_fede.html">
+                    <div class="card">
+                        <img src="images/federico.jpg" class="card-img-top" alt="Libreria Federico">
+                        <div class="card-body">
+                            <h5 class="card-title">Libreria Federico</h5>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
-<br>
-    <br>
-
-    <div id="search-filter-container">
-        <!-- Campo di ricerca (placeholder) -->
-        <input type="text" id="search-placeholder" placeholder="🔍 Cerca un vinile..." >
-
-        <!-- Filtro di ordinamento (placeholder) -->
-        <select id="sort-placeholder" >
-            <option value="">Ordina...</option>
-            <option value="a-z">A-Z</option>
-            <option value="z-a">Z-A</option>
-        </select>
-    </div>
-
-    <!-- Tabella dei vinili -->
-    <table>
-        <thead>
-        <tr>
-            <th>Codice</th>
-            <th>Titolo</th>
-            <th>Artista-Gruppo</th>
-            <th>Anno di Pubblicazione</th>
-            <th>Genere</th>
-            <th>Pollici</th>
-            <th>RPM</th>
-            <th>Paese</th>
-            <th>Casa Discografica</th>
-            <th>Prezzo</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Le righe dei vinili vengono aggiunte qui dinamicamente tramite Javascript -->
-        </tbody>
-    </table>
-
-    <!-- Contenitore per la paginazione -->
-    <div id="pagination"></div>
 
     <br>
     <h2>Timeline di Pubblicazione</h2>
@@ -194,25 +92,8 @@
             <div class="timeline-item"><span>2024</span></div>
         </div>
     </div>
-    <h2>Crea il tuo vinile</h2>
-    <p>
-        Sapevi che è possibile creare vinili personalizzati con le tue canzoni preferite? 🎶 <br>
-        Che si tratti di un regalo speciale, un ricordo di un evento importante o semplicemente un modo unico per conservare la tua musica del cuore, oggi puoi trasformare la tua playlist in un vero vinile da collezione.<br>
-        Incidi le tracce che ami di più, personalizza la copertina con grafiche originali e crea un vinile unico che racconta la tua storia. <br>
-        Visita <strong>Vinilificio</strong>, un punto di riferimento per la stampa di vinili personalizzati, e rendi eterna la tua musica! <br>
-    </p>
 
-    <!-- Contenitore per centrare la mappa -->
-    <div id="map-container">
-        <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2846.09204717844!2d11.336297576379224!3d44.49278069772651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fd494e8cd3a1d%3A0x48da03b4447b3c28!2sVinilificio!5e0!3m2!1sit!2sit!4v1741176975454!5m2!1sit!2sit"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
 </main>
-
-
-
 
 <!-- Footer -->
 <footer vocab="http://purl.org/dc/terms/" typeof="dct:Dataset">

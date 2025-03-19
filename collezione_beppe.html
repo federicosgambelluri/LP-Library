@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VinylLibrary - Collezione di Vinili</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="beppe.js"></script>
+</head>
+<body>
+
+<!-- Header con titolo e navigazione -->
+<header>
+    <a href="index.html"><img src="images/logo.png" alt="Logo" class="logo"></a>
+    <h1>LP Library - Collezione di Vinili</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collezione_fede.html">Collezione Federico</a>
+        <a href="collezione_beppe.html">Collezione Giuseppe</a>
+    </nav>
+</header>
+
+<!-- Sezione principale della collezione -->
+<main>
+    <div id="search-filter-container">
+        <!-- Campo di ricerca -->
+        <input type="text" id="search-placeholder" placeholder="🔍 Cerca un vinile...">
+
+        <!-- Filtro di ricerca -->
+        <select id="filter-placeholder">
+            <option value="artista">Artista</option>
+            <option value="genere">Genere</option>
+            <option value="anno">Anno</option>
+            <option value="locazione">Locazione</option>
+        </select>
+
+        <!-- Ordinamento -->
+        <select id="sort-placeholder">
+            <option value="">Ordina...</option>
+            <option value="a-z">A-Z</option>
+            <option value="z-a">Z-A</option>
+        </select>
+    </div>
+
+    <!-- Tabella dei vinili -->
+    <table>
+        <thead>
+        <tr>
+            <th>Artista / Gruppo</th>
+            <th>Titolo / Album</th>
+            <th>Genere</th>
+            <th>Stato</th>
+            <th>Casa Discografica</th>
+            <th>Formato / RPM</th>
+            <th>Locazione</th>
+            <th>Valore</th>
+            <th>Anno</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Le righe dei vinili vengono aggiunte qui dinamicamente tramite Javascript -->
+        </tbody>
+    </table>
+
+    <!-- Contenitore per la paginazione -->
+    <div id="pagination"></div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 LP Library - Tutti i diritti riservati.</p>
+</footer>
+
+</body>
+</html>
