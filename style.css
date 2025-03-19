@@ -1,0 +1,740 @@
+/* Stili di base */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+
+    /* Flexbox per il layout */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Stili per l'header */
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff6347; /* Cambia colore al passaggio del mouse */
+}
+
+/* Stile della sezione principale */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1; /* Espande il main per occupare lo spazio disponibile */
+}
+
+header .logo {
+    height: 100px; /* Regola l'altezza del logo */
+    margin-left: 0px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+header .logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #222;
+}
+
+.cover {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile per la sezione di aggiunta vinile */
+#aggiungi-vinile {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#aggiungi-vinile h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #222;
+}
+
+#aggiungi-vinile form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+#aggiungi-vinile input,
+#aggiungi-vinile select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#aggiungi-vinile button {
+    padding: 10px 20px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    grid-column: 1 / 2;
+    transition: background-color 0.3s;
+}
+
+#aggiungi-vinile button:hover {
+    background-color: #ff6347;
+}
+
+#aggiungi-vinile + button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#aggiungi-vinile + button:hover {
+    background-color: #e5533d;
+}
+
+/* Stile della tabella */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Stili per la paginazione */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#pagination .pagina {
+    background-color: #f1f1f1;
+    border: none;
+    color: #333;
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+#pagination .pagina.active {
+    background-color: #333;
+    color: #fff;
+}
+
+#pagination .pagina:hover {
+    background-color: #ddd;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+footer a {
+    color: #ff6347;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Se hai una classe specifica per i link dei titoli */
+.titolo-disco-link {
+    color: #333;
+}
+
+.titolo-disco-link:hover {
+    color: #333;
+}
+
+.copertina {
+    width: 536px;
+    height: 536px;
+    object-fit: contain;
+    background-color: #f0f0f0; /* Colore di sfondo per riempire eventuali spazi vuoti */
+    margin-bottom: 20px;
+}
+
+/* Stili per il Web Project Plan */
+#project-plan {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+#project-plan h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+#project-plan h2 {
+    font-size: 1.8em;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #ff6347;
+    padding-bottom: 10px;
+}
+
+#project-plan h3 {
+    font-size: 1.5em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+#project-plan p {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+#project-plan ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+#project-plan li {
+    margin-bottom: 10px;
+}
+
+#project-plan strong {
+    color: #222;
+}
+
+#project-plan em {
+    color: #ff6347;
+}
+
+#project-plan code {
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    font-family: monospace;
+}
+
+#project-plan pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    overflow-x: auto;
+}
+
+#project-plan table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#project-plan table, #project-plan th, #project-plan td {
+    border: 1px solid #ccc;
+}
+
+#project-plan th, #project-plan td {
+    padding: 10px;
+    text-align: left;
+}
+
+#project-plan th {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Stili per il carosello multi-elemento */
+.carousel-item {
+    padding: 15px 0;
+}
+
+.carousel-item img {
+    width: 70%;
+    height: auto;
+}
+
+.carousel-item img:hover {
+    filter: brightness(1.5); /* Aumenta la luminosità del 30% */
+    transition: filter 0.3s ease-in-out;
+
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #333; /* Colore delle frecce */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.carousel-control-prev-icon:after,
+.carousel-control-next-icon:after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.carousel-control-prev-icon:after {
+    transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-control-next-icon:after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Effetto hover sulle frecce */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: #555;
+    opacity: 1;
+}
+
+
+#card{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #cccccc;
+    border-radius: 10px;
+
+}
+
+#card:hover{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: white;
+
+}
+
+.card-header{
+
+    background-color: #333;
+
+
+}
+
+.card-header a {
+    text-align: left;
+    color:white;
+    text-decoration: none;
+}
+
+.card-header a:hover {
+    text-align: left;
+    color:white;
+
+}
+
+ul.breadcrumb {
+    padding: 8px 16px;
+    list-style: none;
+    background-color: #eee;
+}
+
+ul.breadcrumb li {display: inline;}
+
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+
+    padding: 20px 0;
+}
+
+/* Barra della timeline */
+.timeline {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: #333;
+    height: 5px;
+    width: 90%;
+    max-width: 1000px;
+    gap:20px;
+
+}
+
+/* Elementi della timeline */
+.timeline-item {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    line-height: 80px;
+    gap:19px;
+
+}
+
+.timeline-item:hover {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    line-height: 80px;
+    gap:19px;
+
+}
+
+/* Linea di connessione tra gli elementi */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 5px;
+    background-color: #333;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+footer {
+
+    line-height: 0.9;
+}
+
+iframe{
+
+    margin-left: 25%;
+}
+
+.styled-table .zoom-img-2 {
+    width: 200px; /* Larghezza fissa */
+    height: auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+/* Stile per rendere l'immagine cliccabile al passaggio del mouse */
+.zoom-img-2 {
+    cursor: pointer;
+}
+
+/* Modal (overlay a schermo intero) */
+.modal {
+    display: none; /* Nascosto di default */
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: white; /* Sfondo semi-trasparente */
+}
+
+/* Immagine all'interno del modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+}
+
+/* Pulsante per chiudere il modal */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.small-cover {
+    width: 150px; /* Imposta la larghezza a 50px */
+    height: auto; /* Mantiene le proporzioni originali dell'immagine */
+    object-fit: cover; /* Fa in modo che l'immagine copra il contenitore senza distorcere */
+}
+
+
+/* Media Query per dispositivi mobili */
+@media (max-width: 768px) {
+    /* Regolazioni generali */
+    body {
+        font-size: 16px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 5px 0;
+        font-size: 1em;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    main h2 {
+        font-size: 1.5em;
+    }
+
+    /* Sezione aggiungi vinile */
+    #aggiungi-vinile form {
+        grid-template-columns: 1fr;
+    }
+
+    #aggiungi-vinile button {
+        grid-column: 1 / -1;
+    }
+
+    /* Tabelle e immagini */
+    table, th, td {
+        font-size: 0.9em;
+    }
+
+    .copertina {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Carosello */
+    .carousel-item img {
+        width: 100%;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+
+    /* Footer */
+    footer {
+        padding: 0.5em;
+    }
+
+    /* Project Plan */
+    #project-plan {
+        padding: 15px;
+    }
+
+    #project-plan h1 {
+        font-size: 1.5em;
+    }
+
+    #project-plan h2 {
+        font-size: 1.3em;
+    }
+
+    #project-plan h3 {
+        font-size: 1.1em;
+    }
+
+    /* Timeline */
+    .timeline-container {
+        overflow-x: auto;
+    }
+
+    .timeline {
+        flex-wrap: nowrap;
+    }
+
+    header {
+        text-align: center;
+        padding: 10px;
+    }
+    header h1 {
+        font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+    header nav a {
+        display: block;
+        margin: 5px 0;
+        font-size: 1em;
+    }
+    .logo {
+        width: 80px;
+        height: auto;
+    }
+
+    /* Carosello: rendere le immagini responsive */
+    .carousel-inner img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Accordion e form: garantire che gli elementi si estendano al 100% */
+    #vinileAccordion .card,
+    #aggiungi-vinile {
+        margin: 0 10px;
+    }
+    #formVinile input,
+    #formVinile select,
+    #formVinile button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Tabella: ridurre il font e aggiungere lo scroll orizzontale se necessario */
+    table {
+        font-size: 0.8em;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Search & Filter: disposizione a colonna per occupare tutta la larghezza */
+    #search-filter-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+    }
+    #search-filter-container input,
+    #search-filter-container select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Timeline: abilitare lo scroll orizzontale per timeline troppo lunga */
+    .timeline-container {
+        overflow-x: auto;
+        padding: 10px;
+    }
+    .timeline {
+        flex-wrap: nowrap;
+        width: auto;
+    }
+    .timeline-item {
+        flex: 0 0 auto;
+        width: 60px;
+        height: 60px;
+        font-size: 0.9em;
+        line-height: 60px;
+    }
+
+    /* Mappa: rendere l'iframe responsive */
+    #map-container iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Footer: centrare i contenuti */
+    footer p,
+    footer #dublin-core {
+        text-align: center;
+        padding: 5px;
+    }
+    footer #dublin-core .row {
+        flex-direction: column;
+    }
+}
