@@ -298,7 +298,6 @@
         "Prezzo": "22.00",
         "Casa Discografica": "Machete Empire Records, Sony Music, Epic"
     },
-
     {
         "Path": "images/Ahia!.jpg",
         "Codice": " ",
@@ -353,7 +352,7 @@
     },
     {
         "Path": "images/X2.jpg",
-        "Codice": " ",
+        "Codice": "",
         "Titolo": "X2",
         "Artista-Gruppo": "Sick Luke",
         "Anno di Pubblicazione": "2022",
@@ -363,6 +362,19 @@
         "Paese": "IT",
         "Prezzo": " ",
         "Casa Discografica": "Carosello Records"
+    },
+    {
+        "Path": "images/nlg.jpg",
+        "Codice": "0602445158706",
+        "Titolo": "Noi, loro, Gli altri",
+        "Artista-Gruppo": "Marracash",
+        "Anno di Pubblicazione": "2021",
+        "Genere": "Hip Hop",
+        "Pollici": "12",
+        "RPM": "33",
+        "Paese": "IT",
+        "Prezzo": "34",
+        "Casa Discografica": "Island Records"
     },
     {
         "Path": "images/Songs of Experience.jpg",
@@ -377,5 +389,4 @@
         "Prezzo": " ",
         "Casa Discografica": "Island Records"
     }
-
 ]
