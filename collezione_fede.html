@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicona -->
-    <link rel="shortcut icon" href="images/icon.ico" type="image/x-icon">
+    <link rel="icon" href="images/logo.png" type="image/png">
     <!-- Dublin Core -->
     <!-- Il Dublin Core è uno standard di metadati utilizzato per la descrizione di risorse digitali e fisiche,
     con l’obiettivo di facilitare la catalogazione e il recupero delle informazioni -->
@@ -24,18 +25,19 @@
 
 
 </head>
+
 <body>
 
-<!-- Header con titolo e navigazione -->
-<header>
-    <a href="index.html"><img src="images/logo.png" alt="Logo" class="logo"></a>
-    <h1>LP Library - Collezione di Vinili</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="collezione_fede.html">Collezione Federico</a>
-        <a href="collezione_beppe.html">Collezione Giuseppe</a>
-    </nav>
-</header>
+    <!-- Header con titolo e navigazione -->
+    <header>
+        <a href="index.html"><img src="images/logo.png" alt="Logo" class="logo"></a>
+        <h1>LP Library - Collezione di Vinili</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collezione_fede.html">Collezione Federico</a>
+            <a href="collezione_beppe.html">Collezione Giuseppe</a>
+        </nav>
+    </header>
 
 
     <!-- Sezione principale della collezione -->
@@ -46,73 +48,87 @@
 
             <!-- Filtro di ricerca -->
             <select id="filter-placeholder">
+                <option value="tutti">Tutti i campi</option>
+                <option value="titolo">Titolo</option>
                 <option value="artista">Artista</option>
                 <option value="genere">Genere</option>
                 <option value="anno">Anno</option>
                 <option value="locazione">Locazione</option>
             </select>
 
-            <!-- Ordinamento -->
+            <button id="apply-filters-btn">Applica Filtri</button>
+
+            <span style="margin-left: 15px; font-weight: bold;">Ordina per:</span>
+            <!-- Selettore campo di ordinamento -->
+            <select id="sort-field">
+                <option value="artista">Artista</option>
+                <option value="titolo">Titolo</option>
+                <option value="genere">Genere</option>
+                <option value="anno">Anno</option>
+                <option value="locazione">Locazione</option>
+            </select>
+
+            <!-- Ordinamento (Verso) -->
             <select id="sort-placeholder">
-                <option value="">Ordina...</option>
-                <option value="a-z">A-Z</option>
-                <option value="z-a">Z-A</option>
+                <option value="a-z">Crescente (A-Z)</option>
+                <option value="z-a">Decrescente (Z-A)</option>
             </select>
         </div>
 
-    <!-- Tabella dei vinili -->
-    <table>
-        <thead>
-        <tr>
-            <th>Copertina</th>
-            <th>Codice</th>
-            <th>Titolo</th>
-            <th>Artista-Gruppo</th>
-            <th>Anno di Pubblicazione</th>
-            <th>Genere</th>
-            <th>Pollici</th>
-            <th>RPM</th>
-            <th>Paese</th>
-            <th>Casa Discografica</th>
-            <th>Prezzo</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Le righe dei vinili vengono aggiunte qui dinamicamente tramite Javascript -->
-        </tbody>
-    </table>
+        <!-- Tabella dei vinili -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Copertina</th>
+                    <th>Codice</th>
+                    <th>Titolo</th>
+                    <th>Artista-Gruppo</th>
+                    <th>Anno di Pubblicazione</th>
+                    <th>Genere</th>
+                    <th>Pollici</th>
+                    <th>RPM</th>
+                    <th>Paese</th>
+                    <th>Casa Discografica</th>
+                    <th>Prezzo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Le righe dei vinili vengono aggiunte qui dinamicamente tramite Javascript -->
+            </tbody>
+        </table>
 
-    <!-- Contenitore per la paginazione -->
-    <div id="pagination"></div>
-
-
-</main>
+        <!-- Contenitore per la paginazione -->
+        <div id="pagination"></div>
 
 
+    </main>
 
 
-<!-- Footer -->
-<footer vocab="http://purl.org/dc/terms/" typeof="dct:Dataset">
-    <p>&copy; 2024 LP Library - Tutti i diritti riservati.</p>
 
-    <section id="dublin-core" class="container">
-        <div class="row">
-            <!-- Prima colonna -->
-            <div class="col-md-6">
-                <p><strong>Titolo:</strong> <span property="dct:title">LP Library - Collezione di Vinili</span></p>
-                <p><strong>Creatore:</strong> <span property="dct:creator">Federico Sgambelluri</span></p>
-                <p><strong>Descrizione:</strong> <span property="dct:description">Archivio per catalogare vinili</span></p>
-                <p><strong>Editore:</strong> <span property="dct:publisher">LP Library</span></p>
+
+    <!-- Footer -->
+    <footer vocab="http://purl.org/dc/terms/" typeof="dct:Dataset">
+        <p>&copy; 2024 LP Library - Tutti i diritti riservati.</p>
+
+        <section id="dublin-core" class="container">
+            <div class="row">
+                <!-- Prima colonna -->
+                <div class="col-md-6">
+                    <p><strong>Titolo:</strong> <span property="dct:title">LP Library - Collezione di Vinili</span></p>
+                    <p><strong>Creatore:</strong> <span property="dct:creator">Federico Sgambelluri</span></p>
+                    <p><strong>Descrizione:</strong> <span property="dct:description">Archivio per catalogare
+                            vinili</span></p>
+                    <p><strong>Editore:</strong> <span property="dct:publisher">LP Library</span></p>
+                </div>
+                <!-- Seconda colonna -->
+                <div class="col-md-6">
+                    <p><strong>Data di pubblicazione:</strong> <span property="dct:date">2024</span></p>
+                    <p><strong>Formato:</strong> <span property="dct:format">HTML</span></p>
+                    <p><strong>Lingua:</strong> <span property="dct:language">Italiano</span></p>
+                </div>
             </div>
-            <!-- Seconda colonna -->
-            <div class="col-md-6">
-                <p><strong>Data di pubblicazione:</strong> <span property="dct:date">2024</span></p>
-                <p><strong>Formato:</strong> <span property="dct:format">HTML</span></p>
-                <p><strong>Lingua:</strong> <span property="dct:language">Italiano</span></p>
-            </div>
-        </div>
-    </section>
-</footer>
+        </section>
+    </footer>
 
 
 

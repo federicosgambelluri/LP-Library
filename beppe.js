@@ -11,19 +11,32 @@ async function caricaDaCSVBeppe() {
         const text = await response.text();
 
         // Parse CSV e separa le righe
-        const rows = text.split("\n").map(row => row.split(","));
+        const rows = text.split("\n").map(row => row.split(";"));
 
-        // Crea un array per i vinili
-        viniliTotali = rows.map(row => ({
-            "Artista-Gruppo": row[0],
-            "Titolo": row[1],
-            "Genere": row[2],
-            "Stato": row[3],
-            "Casa Discografica": row[4],
-            "Formato-RPM": row[5],
-            "Locazione": row[6],
-            "Valore": row[7],
-            "Anno": row[8]
+        // Crea un array per i vinili scartando le righe incomplete o malformate
+        viniliTotali = rows.filter(row => {
+            if (row.length < 9) return false;
+
+            const annoStr = row[8] ? row[8].trim() : "";
+            const anno = parseInt(annoStr, 10);
+
+            // Controlla che l'anno sia valido (es. saltiamo righe vuote o sfasate)
+            if (isNaN(anno) || anno < 1800 || anno > 2200) return false;
+
+            // Assicurati che i dati principali non siano assenti
+            if (!row[0] || !row[0].trim() || !row[1] || !row[1].trim()) return false;
+
+            return true;
+        }).map(row => ({
+            "Artista-Gruppo": row[0].trim(),
+            "Titolo": row[1].trim(),
+            "Genere": row[2] ? row[2].trim() : "",
+            "Stato": row[3] ? row[3].trim() : "",
+            "Casa Discografica": row[4] ? row[4].trim() : "",
+            "Formato-RPM": row[5] ? row[5].trim() : "",
+            "Locazione": row[6] ? row[6].trim() : "",
+            "Valore": row[7] ? row[7].trim() : "",
+            "Anno": row[8].trim()
         }));
 
         // Ordina i vinili in ordine alfabetico per 'Artista-Gruppo'
@@ -98,10 +111,19 @@ function filtraVinili() {
 
     // Filtra i vinili in base ai criteri di ricerca
     const viniliFiltrati = viniliTotali.filter(vinile => {
+        if (!searchTerm) return true;
+
+        if (filtroCategoria === 'tutti') {
+            // Cerca in tutti i campi dell'oggetto
+            return Object.values(vinile).some(val =>
+                val && String(val).toLowerCase().includes(searchTerm)
+            );
+        }
+
         let valoreCriterio = "";
 
         // Determina quale categoria di filtro è stata selezionata e ottieni il valore da confrontare
-        switch(filtroCategoria) {
+        switch (filtroCategoria) {
             case 'artista':
                 valoreCriterio = vinile["Artista-Gruppo"];
                 break;
@@ -119,7 +141,7 @@ function filtraVinili() {
                 break;
         }
 
-        return valoreCriterio.toLowerCase().includes(searchTerm);
+        return String(valoreCriterio).toLowerCase().includes(searchTerm);
     });
 
     viniliVisibili = viniliFiltrati;
@@ -129,27 +151,56 @@ function filtraVinili() {
 
 // Funzione per ordinare i vinili
 function ordinaVinili() {
+    const sortField = document.getElementById('sort-field').value;
     const ordinamento = document.getElementById('sort-placeholder').value;
 
-    // Applica ordinamento solo sui vinili visibili
-    if (ordinamento === 'a-z') {
-        viniliVisibili.sort((a, b) => a["Artista-Gruppo"].localeCompare(b["Artista-Gruppo"]));
-    } else if (ordinamento === 'z-a') {
-        viniliVisibili.sort((a, b) => b["Artista-Gruppo"].localeCompare(a["Artista-Gruppo"]));
-    }
+    viniliVisibili.sort((a, b) => {
+        let valA = "";
+        let valB = "";
+
+        if (sortField === 'artista') {
+            valA = a["Artista-Gruppo"] || "";
+            valB = b["Artista-Gruppo"] || "";
+        } else if (sortField === 'titolo') {
+            valA = a.Titolo || "";
+            valB = b.Titolo || "";
+        } else if (sortField === 'genere') {
+            valA = a.Genere || "";
+            valB = b.Genere || "";
+        } else if (sortField === 'anno') {
+            valA = a.Anno || "";
+            valB = b.Anno || "";
+        } else if (sortField === 'locazione') {
+            valA = a.Locazione || "";
+            valB = b.Locazione || "";
+        }
+
+        valA = String(valA).toLowerCase();
+        valB = String(valB).toLowerCase();
+
+        return ordinamento === 'z-a' ? valB.localeCompare(valA) : valA.localeCompare(valB);
+    });
 
     visualizzaViniliBeppe();
 }
 
 // Aggiungi gli event listener per il filtro e l'ordinamento
 function aggiungiEventListener() {
-    document.getElementById('search-placeholder').addEventListener('input', filtraVinili);
-    document.getElementById('filter-placeholder').addEventListener('change', filtraVinili);
+    document.getElementById('apply-filters-btn').addEventListener('click', filtraVinili);
+
+    // Permetti la ricerca anche premendo Invio nel campo di testo
+    document.getElementById('search-placeholder').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            filtraVinili();
+        }
+    });
+
+    document.getElementById('sort-field').addEventListener('change', ordinaVinili);
     document.getElementById('sort-placeholder').addEventListener('change', ordinaVinili);
 }
 
 // Carica i dati al caricamento della pagina
-window.onload = function() {
+window.onload = function () {
     caricaDaCSVBeppe(); // Popola la pagina con i dati dal CSV di Beppe
     aggiungiEventListener(); // Aggiungi gli event listener per ricerca e filtro
 };

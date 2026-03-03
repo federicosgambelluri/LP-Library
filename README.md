@@ -44,9 +44,13 @@ Il progetto si ispira a piattaforme come [Discogs](https://www.discogs.com) e [M
 - **W3Schools HOW TO / Bootstrap**: Componenti come carousel, accordion, tab, table, e cards per una navigazione interattiva.
 - **Funzionalità di Navigazione**: Paginazione, breadcrumb e timeline per migliorare l'esperienza utente.
 
+## Implementazioni Future
+1. **Aggiunta Brani (Tracklist)**: Integrare la lista dei brani per ogni singolo LP nella collezione.
+2. **Immagini Collezione Giuseppe**: Aggiungere le copertine per gli LP della libreria di Giuseppe (Beppe).
+3. **Automazione Dati (Scraping/API)**: Le informazioni e i metadati potranno essere estratti tramite scraping da [Discogs](https://www.discogs.com) e caricati, oppure letti direttamente online tramite le loro API per velocizzare l'inserimento.
+
 ## Servizi Futuri
 - **Ascolto degli Album**: Integrazione con piattaforme come YouTube, Spotify o Apple Music per ascoltare i dischi direttamente dalla pagina.
-- **Espansioni**: Possibilità di integrare API come Discogs o MusicBrainz per automatizzare la catalogazione.
 
 ## Installazione
 1. Clona il repository:

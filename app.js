@@ -92,31 +92,37 @@ function filtraVinili() {
     } else {
         // Filtra i vinili in base ai criteri di ricerca
         viniliVisibili = viniliTotali.filter(vinile => {
+            if (filtroCategoria === 'tutti') {
+                return Object.values(vinile).some(val =>
+                    val && String(val).toLowerCase().includes(searchTerm)
+                );
+            }
+
             let valoreCriterio = "";
 
             // Determina quale categoria di filtro è stata selezionata e ottieni il valore da confrontare
             switch (filtroCategoria) {
                 case 'artista':
-                    valoreCriterio = vinile["Artista-Gruppo"];
+                    valoreCriterio = vinile["Artista-Gruppo"] || "";
                     break;
                 case 'genere':
-                    valoreCriterio = vinile.Genere;
+                    valoreCriterio = vinile.Genere || "";
                     break;
                 case 'anno':
-                    valoreCriterio = vinile.Anno;
+                    valoreCriterio = vinile["Anno di Pubblicazione"] || vinile.Anno || "";
                     break;
                 case 'locazione':
-                    valoreCriterio = vinile.Locazione;
+                    valoreCriterio = vinile.Locazione || "";
                     break;
                 case 'titolo':
-                    valoreCriterio = vinile.Titolo; // Aggiunto il filtro per titolo
+                    valoreCriterio = vinile.Titolo || "";
                     break;
                 default:
-                    valoreCriterio = vinile["Artista-Gruppo"];
+                    valoreCriterio = vinile["Artista-Gruppo"] || "";
                     break;
             }
 
-            return valoreCriterio.toLowerCase().includes(searchTerm);
+            return String(valoreCriterio).toLowerCase().includes(searchTerm);
         });
     }
 
@@ -126,27 +132,57 @@ function filtraVinili() {
 
 // Funzione per ordinare i vinili
 function ordinaVinili() {
+    const sortField = document.getElementById('sort-field').value;
     const ordinamento = document.getElementById('sort-placeholder').value;
 
-    // Applica ordinamento solo sui vinili visibili
-    if (ordinamento === 'a-z') {
-        viniliVisibili.sort((a, b) => a["Artista-Gruppo"].localeCompare(b["Artista-Gruppo"]));
-    } else if (ordinamento === 'z-a') {
-        viniliVisibili.sort((a, b) => b["Artista-Gruppo"].localeCompare(a["Artista-Gruppo"]));
-    }
+    viniliVisibili.sort((a, b) => {
+        let valA = "";
+        let valB = "";
+
+        if (sortField === 'artista') {
+            valA = a["Artista-Gruppo"] || "";
+            valB = b["Artista-Gruppo"] || "";
+        } else if (sortField === 'titolo') {
+            valA = a.Titolo || "";
+            valB = b.Titolo || "";
+        } else if (sortField === 'genere') {
+            valA = a.Genere || "";
+            valB = b.Genere || "";
+        } else if (sortField === 'anno') {
+            valA = a["Anno di Pubblicazione"] || a.Anno || "";
+            valB = b["Anno di Pubblicazione"] || b.Anno || "";
+        } else if (sortField === 'locazione') {
+            valA = a.Locazione || "";
+            valB = b.Locazione || "";
+        }
+
+        // Converti a stringa e minuscolo per sorting robusto
+        valA = String(valA).toLowerCase();
+        valB = String(valB).toLowerCase();
+
+        return ordinamento === 'z-a' ? valB.localeCompare(valA) : valA.localeCompare(valB);
+    });
 
     visualizzaViniliConCopertina();
 }
 
 // Funzione per aggiungere gli event listener
 function aggiungiEventListener() {
-    document.getElementById('search-placeholder').addEventListener('input', filtraVinili);
-    document.getElementById('filter-placeholder').addEventListener('change', filtraVinili);
+    document.getElementById('apply-filters-btn').addEventListener('click', filtraVinili);
+
+    // Permetti la ricerca anche premendo Invio nel campo di testo
+    document.getElementById('search-placeholder').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            filtraVinili();
+        }
+    });
+
+    document.getElementById('sort-field').addEventListener('change', ordinaVinili);
     document.getElementById('sort-placeholder').addEventListener('change', ordinaVinili);
 }
 
 // Carica i dati al caricamento della pagina
-window.onload = function() {
+window.onload = function () {
     caricaDaJSON(); // Popola la pagina con i dati dal JSON
     aggiungiEventListener(); // Aggiungi gli event listener per ricerca e filtro
 };
